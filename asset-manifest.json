@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/redux-hw-07-practice/static/css/main.945450a2.chunk.css",
+    "main.js": "/redux-hw-07-practice/static/js/main.c1d4c6c4.chunk.js",
+    "main.js.map": "/redux-hw-07-practice/static/js/main.c1d4c6c4.chunk.js.map",
+    "runtime-main.js": "/redux-hw-07-practice/static/js/runtime-main.c32d5514.js",
+    "runtime-main.js.map": "/redux-hw-07-practice/static/js/runtime-main.c32d5514.js.map",
+    "static/js/2.f8827f4b.chunk.js": "/redux-hw-07-practice/static/js/2.f8827f4b.chunk.js",
+    "static/js/2.f8827f4b.chunk.js.map": "/redux-hw-07-practice/static/js/2.f8827f4b.chunk.js.map",
+    "index.html": "/redux-hw-07-practice/index.html",
+    "static/css/main.945450a2.chunk.css.map": "/redux-hw-07-practice/static/css/main.945450a2.chunk.css.map",
+    "static/js/2.f8827f4b.chunk.js.LICENSE.txt": "/redux-hw-07-practice/static/js/2.f8827f4b.chunk.js.LICENSE.txt",
+    "static/media/add.ad037bb3.svg": "/redux-hw-07-practice/static/media/add.ad037bb3.svg",
+    "static/media/close.3edff3ee.svg": "/redux-hw-07-practice/static/media/close.3edff3ee.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c32d5514.js",
+    "static/js/2.f8827f4b.chunk.js",
+    "static/css/main.945450a2.chunk.css",
+    "static/js/main.c1d4c6c4.chunk.js"
+  ]
+}
