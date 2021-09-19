@@ -1,9 +1,15 @@
 import { createAction } from '@reduxjs/toolkit';
-import shortid from 'shortid';
 
-export const addContact = createAction('contacts/add', ({ name, number }) => ({
-  payload: { id: shortid.generate(), name, number },
-}));
+export const fetchContactStart = createAction('contacts/fetchContactStart');
+export const fetchContactSuccess = createAction('contacts/fetchContactSuccess');
+export const fetchContactError = createAction('contacts/fetchContactError');
 
-export const deleteContact = createAction('contacts/delete');
+export const addContactStart = createAction('contacts/addContactStart');
+export const addContactSuccess = createAction('contacts/addContactSuccess');
+export const addContactError = createAction('contacts/addContactError');
+
+export const deleteContactStart = createAction('contacts/deleteContactStart');
+export const deleteContactSuccess = createAction('contacts/deleteContactSuccess');
+export const deleteContactError = createAction('contacts/deleteContactError');
+
 export const changeFliter = createAction('contacts/changeFliter');

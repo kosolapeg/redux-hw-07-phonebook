@@ -1,6 +1,7 @@
+import { useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
 import { connect } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/contacts-actions';
+import { deleteContact, fetchContacts } from '../../redux/contacts/contacts-operations';
 
 const useStyles = createUseStyles({
   contactsList: { width: 500 },
@@ -20,19 +21,16 @@ const useStyles = createUseStyles({
   },
 });
 
-const Contacts = ({ contactsList, onDelete }) => {
+const Contacts = ({ contactsList, onDelete, fetchContacts }) => {
   const classes = useStyles();
+  useEffect(() => fetchContacts(), []);
 
   return (
     <ul className={classes.contactsList}>
       {contactsList.map(({ id, name, number }) => (
         <li key={id} className={classes.contactItem}>
           {name}: {number}
-          <button
-            type="button"
-            className={classes.button}
-            onClick={() => onDelete(id)}
-          >
+          <button type="button" className={classes.button} onClick={() => onDelete(id)}>
             x
           </button>
         </li>
@@ -43,9 +41,7 @@ const Contacts = ({ contactsList, onDelete }) => {
 
 const getVisibleContacts = (allContacts, filter) => {
   const normalizedFilter = filter.toLocaleLowerCase();
-  return allContacts.filter(({ name }) =>
-    name.toLocaleLowerCase().includes(normalizedFilter),
-  );
+  return allContacts.filter(({ name }) => name.toLocaleLowerCase().includes(normalizedFilter));
 };
 
 const mapStateToProps = ({ contacts: { items, filter } }) => {
@@ -56,6 +52,7 @@ const mapStateToProps = ({ contacts: { items, filter } }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchContacts: () => dispatch(fetchContacts()),
     onDelete: id => dispatch(deleteContact(id)),
   };
 };
