@@ -9,29 +9,24 @@ import {
   deleteContactStart,
   deleteContactSuccess,
   deleteContactError,
-  changeFliter,
 } from './contacts-actions';
 
-const contactsReducer = createReducer([], {
+import filter from './slice-filter';
+
+const items = createReducer([], {
   [fetchContactSuccess]: (_, { payload }) => payload,
   [addContactSuccess]: (items, { payload }) => {
     const { name } = payload;
-    console.log('Payload:', payload);
     const isExistName = items.some(contact => contact.name === name);
 
     if (isExistName) {
       alert(`${name} is already in contacts`);
       return;
     }
-
-    return [payload, ...items];
+    return [...items, payload];
   },
 
   [deleteContactSuccess]: (items, { payload }) => items.filter(contact => contact.id !== payload),
-});
-
-const filterReducer = createReducer('', {
-  [changeFliter]: (_, { payload }) => payload,
 });
 
 const loading = createReducer(false, {
@@ -47,7 +42,11 @@ const loading = createReducer(false, {
 });
 
 export default combineReducers({
-  items: contactsReducer,
-  filter: filterReducer,
+  items,
+  filter,
   loading,
 });
+
+// const filter = createReducer('', {
+//   [changeFliter]: (_, { payload }) => payload,
+// });

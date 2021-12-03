@@ -10,19 +10,11 @@ import {
   REGISTER,
 } from 'redux-persist';
 // import storage from 'redux-persist/lib/storage';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import contactsReducer from './contacts/contacts-reducer';
-
-// const contactsPersistConfig = {
-//   key: 'contacts',
-//   storage,
-//   blacklist: ['filter'],
-// };
+import counterReducer from './counter';
 
 const myMiddleWare = store => next => action => {
-  // console.log('прослойка и акшен', action.type);
-  // console.dir('прослойка и next', next);
-
   next(action);
 };
 
@@ -32,19 +24,25 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  logger,
-
+  // logger,
   myMiddleWare,
 ];
 
 const store = configureStore({
   reducer: {
     contacts: contactsReducer,
+    counter: counterReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
 });
 
-// const persistor = persistStore(store);
-
 export default store;
+
+// const persistor = persistStore(store);
+// --------------------------------------------
+// const contactsPersistConfig = {
+//   key: 'contacts',
+//   storage,
+//   blacklist: ['filter'],
+// };

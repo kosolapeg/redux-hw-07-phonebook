@@ -7,6 +7,7 @@ import Contacts from './components/Contacts';
 import Filter from './components/Filter';
 import Modal from './components/Modal';
 import IconButton from './components/IconButton';
+import Counter from './components/Counter/';
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,12 +17,12 @@ const App = () => {
   };
   return (
     <>
+      <Section title="Counter">
+        <Counter />
+      </Section>
+
       <Section title="Phonebook">
-        <IconButton
-          type="button"
-          onClick={onToggleModal}
-          aria-label="Button to add new contact"
-        >
+        <IconButton type="button" onClick={onToggleModal} aria-label="Button to add new contact">
           <AddIcon width="40" height="40" fill="#009933"></AddIcon>
         </IconButton>
         {showModal && (

@@ -11,10 +11,10 @@ import {
   deleteContactError,
 } from './contacts-actions';
 
-axios.defaults.baseURL = 'http://localhost:8000/';
+axios.defaults.baseURL = 'https://619bd9d168ebaa001753c644.mockapi.io/';
 
 export const fetchContacts = () => async dispatch => {
-  dispatch(fetchContactStart);
+  dispatch(fetchContactStart());
 
   try {
     const { data } = await axios.get('/contacts');
@@ -27,7 +27,7 @@ export const fetchContacts = () => async dispatch => {
 export const addContact =
   ({ name, number }) =>
   dispatch => {
-    dispatch(addContactStart);
+    dispatch(addContactStart());
 
     axios
       .post('/contacts', { name, number })
@@ -36,7 +36,7 @@ export const addContact =
   };
 
 export const deleteContact = id => dispatch => {
-  dispatch(deleteContactStart);
+  dispatch(deleteContactStart());
 
   axios
     .delete(`/contacts/${id}`)

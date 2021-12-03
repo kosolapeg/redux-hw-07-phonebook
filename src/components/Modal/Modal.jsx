@@ -18,6 +18,7 @@ const Modal = ({ children, onToggleModal }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleBackdropClick = e => {
@@ -28,11 +29,7 @@ const Modal = ({ children, onToggleModal }) => {
     <div className="Modal__backdrop" onClick={handleBackdropClick}>
       <div className="Modal__content">
         {children}
-        <IconButton
-          className="Modal__close"
-          onClick={onToggleModal}
-          aria-label="CLose button"
-        >
+        <IconButton className="Modal__close" onClick={onToggleModal} aria-label="CLose button">
           <CloseIcon width="25" height="25" fill="#000"></CloseIcon>
         </IconButton>
       </div>
