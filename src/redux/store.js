@@ -12,7 +12,7 @@ import {
 // import storage from 'redux-persist/lib/storage';
 // import logger from 'redux-logger';
 import contactsReducer from './contacts/contacts-reducer';
-import counterReducer from './counter';
+import counterReducer from './counter-slice';
 
 const myMiddleWare = store => next => action => {
   next(action);

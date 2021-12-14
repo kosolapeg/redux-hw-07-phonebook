@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { increment } from '../../redux/counter';
+import { increment, decrement } from '../../redux/counter-slice';
 import CounterButton from './Counter';
 
 const mapStateToProps = state => ({
@@ -8,6 +8,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onClick: () => dispatch(increment()),
+  onContextMenu: e => {
+    e.preventDefault();
+    return dispatch(decrement());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CounterButton);
