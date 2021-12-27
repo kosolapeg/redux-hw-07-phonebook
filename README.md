@@ -1,1 +1,1 @@
-# redux-hw-07-practicenpm
+# redux-hw-07-practice
